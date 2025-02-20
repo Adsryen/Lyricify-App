@@ -12,14 +12,17 @@
 1. 在浏览器中登录 Spotify (https://www.spotify.com) ，如果你已登录，可进入步骤 2。
 2. 打开 https://developer.spotify.com/dashboard ，如果你是第一次打开这个网址，则需要先同意 Spotify Developer Terms。勾选下方的 `I accept the Spotify Developer Terms of Service`，再点击 `Accept the terms` 即可。
 ![](pic/Demo-Pic01.png)
-3. 点击 Dashboard 页面右上方的 `Create app`。
+1. 点击 Dashboard 页面右上方的 `Create app`。  
+   如果提示 `You need to verify your email address before you can create an app.`，则需要你先验证你的邮箱。
 ![](pic/Demo-Pic02.png)
-4. 在 Create app 页面中填写以下信息：
+1. 在 Create app 页面中填写以下信息：
    - App name: Lyricify
    - App description: Lyricify Custom API Client
    - Website: （空着不写）
-   - Redirect URI: http://localhost:766/callback
-5. 勾选 `Which API/SDKs are you planning to use?` 部分中的 `Web API`；  
+   - Redirect URI: （填写以下两条，每条填写完成后点击 `Add` 按钮）
+     - http://localhost:766/callback
+     - lyricify://callback
+2. 勾选 `Which API/SDKs are you planning to use?` 部分中的 `Web API`；  
    勾选 `I understand and agree with Spotify's Developer Terms of Service and Design Guidelines`；  
    点击 `Save` 按钮。  
 ![](pic/Demo-Pic03.png)
@@ -31,3 +34,9 @@
 1. 如果你已经在 Lyricify Mobile 中登录了 Spotify，则需要在打开 Lyricify Mobile 后，进入登录界面时点击 `取消`。
 2. 在欢迎界面 `自定义 API Client` 区域对应处输入准备步骤中获取到的 `Client ID` 和 `Client Secret`。
 3. 点击 `登录 (获取 Token)`，重新完成登录和授权即可。
+
+# 常见问题
+
+## 授权时提示 INVALID_CLIENT: Invalid redirect URI
+请检查 `Redirect URI` 是否填写错误，确保其值包含 `lyricify://callback` 和 `http://localhost:766/callback`，而不是 `https://localhost:766/callback`。  
+如果你是在 Android 或 iOS 设备上使用，请确保其值包含 `lyricify://callback`。
